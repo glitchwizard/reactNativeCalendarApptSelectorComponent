@@ -1,0 +1,12 @@
+{
+  "name": "reactNativeCalApptSelectorComponent",
+  "displayName": "reactNativeCalApptSelectorComponent",
+  "expo": {
+    "name": "reactNativeCalApptSelectorComponent",
+    "slug": "reactNativeCalApptSelectorComponent",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
