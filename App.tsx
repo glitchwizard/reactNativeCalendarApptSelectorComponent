@@ -1,30 +1,46 @@
 import React from 'react';
 import Background from './components/background';
-import { StyleSheet, View, Text } from 'react-native';
-import { NavigationFullscreenExit } from 'material-ui/svg-icons';
+import { StyleSheet, View, Text, StatusBar } from 'react-native';
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.calApptComponentContainer}>
         <View style={styles.calHeader}>
-          <Text style={{ borderColor: "green", borderWidth: 1, flex: 1}}>Tues, Jan 14</Text>
-          <Text style={{ borderColor: "purple", borderWidth: 1, flex: 1}}> CALiCon</Text>
+          <Text style={{ borderColor: "green", borderWidth: 1, flex: 1 }}>
+            Tues, Jan 14
+          </Text>
+          <View
+            style={{
+              borderColor: "purple",
+              borderWidth: 1,
+              flex: 1,
+              alignItems: "flex-end",
+            }}
+          >
+            <CalendarTodayIcon />
+          </View>
         </View>
         <View style={styles.calWeekdaySelector}>
-          <Text>S M T W T F S</Text>
+          <Text style={styles.calWeekdayItemText}>S</Text>
+          <Text style={styles.calWeekdayItemText}>M</Text>
+          <Text style={styles.calWeekdayItemText}>T</Text>
+          <Text style={styles.calWeekdayItemText}>W</Text>
+          <Text style={styles.calWeekdayItemText}>T</Text>
+          <Text style={styles.calWeekdayItemText}>F</Text>
+          <Text style={styles.calWeekdayItemText}>S</Text>
         </View>
         <View style={styles.calMeetingTimeSelectorContainer}>
-          <Text>
-            CalMeetingTimeSelector        
-          </Text>
+          <Text>CalMeetingTimeSelector</Text>
         </View>
         <View style={styles.calFooter}>
           <Text>CalFooter</Text>
         </View>
       </View>
       <Background />
-    </View> 
+      <StatusBar />
+    </View>
   );
 }
 
@@ -41,18 +57,27 @@ const styles = StyleSheet.create({
     alignItems: "stretch",
   },
   calHeader: {
-    paddingTop: 25,
+    paddingTop: 50,
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: 'stretch',
   },
+  calWeekdayItemText: {
+    flex: 1
+  },
   calWeekdaySelector:{
     flex: 1,
+    flexDirection: "row",
     borderColor: "yellowgreen",
     borderWidth: 1,
-    justifyContent: "center",
-    alignItems: "center"
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingLeft: 20,
+    paddingRight: 20
+  },
+  calWeekdayItemText: {
+    fontSize: 30
   },
   calMeetingTimeSelectorContainer: {
     flex: 2,

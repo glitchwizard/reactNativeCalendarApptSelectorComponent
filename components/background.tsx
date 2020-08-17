@@ -1,15 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, View, Image, ScrollView } from 'react-native';
 
-const imageSrc = require("../assets/CalScreenShot.png");
 
 export default function Background() {
     return (
         <View style={styles.container}>
-            <ScrollView/>
-            <Image source={imageSrc} style={styles.image} />
-            <StatusBar style="auto" />
+            <Image source={{"../assets/CalScreenShot.png"}} style={styles.image} />
         </View>
     )
 }
@@ -20,13 +16,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         justifyContent: "center",
         alignItems: "center",
-        elevation: -2,
-        zIndex: -2
-    },
-    calApptComponentContainer: {
-
     },
     image: {
-        resizeMode: "contain",
+        width: "100%",
+        height: "100%",
     }
 });
