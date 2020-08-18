@@ -1,9 +1,17 @@
 import React from 'react';
 import Background from './components/background';
 import { StyleSheet, View, Text, StatusBar } from 'react-native';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import WeekdayPicker from "react-native-weekday-picker";
+
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"></link>
+
 
 export default function App() {
+  let daySelectionIndicatorPadding = 9;
+  let days = { 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 0, 0: 0 };
+  
+
   return (
     <View style={styles.container}>
       <View style={styles.calApptComponentContainer}>
@@ -19,18 +27,16 @@ export default function App() {
               alignItems: "flex-end",
             }}
           >
-            <CalendarTodayIcon />
+            <Icon name="calendar-blank" size={30} color="#000" />
           </View>
         </View>
-        <View style={styles.calWeekdaySelector}>
-          <Text style={styles.calWeekdayItemText}>S</Text>
-          <Text style={styles.calWeekdayItemText}>M</Text>
-          <Text style={styles.calWeekdayItemText}>T</Text>
-          <Text style={styles.calWeekdayItemText}>W</Text>
-          <Text style={styles.calWeekdayItemText}>T</Text>
-          <Text style={styles.calWeekdayItemText}>F</Text>
-          <Text style={styles.calWeekdayItemText}>S</Text>
-        </View>
+            <WeekdayPicker
+              days={days}
+              //onChange={this.handleChange}
+              style={styles.picker}
+              dayStyle={styles.day}
+            />
+        
         <View style={styles.calMeetingTimeSelectorContainer}>
           <Text>CalMeetingTimeSelector</Text>
         </View>
@@ -48,6 +54,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    fontFamily: 'Lato, sans-serif',
   },
   calApptComponentContainer: {
     borderWidth: 1,
@@ -64,20 +71,20 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
   },
   calWeekdayItemText: {
-    flex: 1
+    flex: 1,
+    fontSize: 20,
+    textAlign: "center"
   },
   calWeekdaySelector:{
     flex: 1,
     flexDirection: "row",
     borderColor: "yellowgreen",
     borderWidth: 1,
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
+    alignContent: 'center',
     paddingLeft: 20,
-    paddingRight: 20
-  },
-  calWeekdayItemText: {
-    fontSize: 30
+    paddingRight: 20,
   },
   calMeetingTimeSelectorContainer: {
     flex: 2,
@@ -89,4 +96,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "yellow",
   },
+  picker: {
+    padding: 30
+  },
+  day: {
+    margin: 5
+  }
 });

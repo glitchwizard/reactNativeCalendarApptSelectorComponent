@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, View, Image, ScrollView } from 'react-native';
 
+const imgSrc = require("../assets/CalScreenShot.png");
 
 export default function Background() {
     return (
         <View style={styles.container}>
-            <Image source={{"../assets/CalScreenShot.png"}} style={styles.image} />
+            <Image source={imgSrc} style={styles.image} />
         </View>
     )
 }
