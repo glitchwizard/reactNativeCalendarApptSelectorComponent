@@ -53,8 +53,6 @@ export default function WeekdayPicker(props){
 
 const styles = StyleSheet.create({
   container:{
-    borderColor: "red",
-    borderWidth: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center'

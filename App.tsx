@@ -1,8 +1,10 @@
 import React from 'react';
 import Background from './components/background';
-import { StyleSheet, View, Text, StatusBar } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { StyleSheet, View, Text, StatusBar, Image, Button, TextInput } from 'react-native';
+import MaterialCommunityIcon from "react-native-vector-icons/MaterialCommunityIcons";
+import SimpleLineIcon from "react-native-vector-icons/SimpleLineIcons";
 import WeekdayPicker from "./react-native-weekday-picker";
+import { EditorBorderColor } from 'material-ui/svg-icons';
 
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"></link>
 
@@ -16,11 +18,13 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.calApptComponentContainer}>
         <View style={styles.calHeader}>
-          <Text style={{ flex: 1, fontSize: 17}}>
-            Tues, Jan 14
-          </Text>
-          <View style={{ flex: 1, alignItems: "flex-end" }} >
-            <Icon name="calendar-blank" size={30} color="#000" />
+          <Text style={{ flex: 1, fontSize: 17 }}>Tues, Jan 14</Text>
+          <View style={{ flex: 1, alignItems: "flex-end" }}>
+            <MaterialCommunityIcon
+              name="calendar-blank"
+              size={30}
+              color="#000"
+            />
           </View>
         </View>
         <WeekdayPicker
@@ -67,7 +71,39 @@ export default function App() {
           <View style={styles.calMeetingTimeSelectorBookend}></View>
         </View>
         <View style={styles.calFooter}>
-          <Text>CalFooter</Text>
+          <View style={styles.calFooterUpperSection}>
+            <View style={styles.calFooterItem}>
+              <View style={styles.calFooterLeftItem}>
+                <SimpleLineIcon
+                  name="user-female"
+                  size={30}
+                  color="#000"
+                  style={StyleSheet.calFooterUserIcon}
+                />
+                <View style={styles.calFooterUserInfoContainer}>
+                  <Text style={styles.calFooterUserName}>Kenneth Lai</Text>
+                  <Text style={styles.calDatePickerButton}>CHANGE</Text>
+                </View>
+              </View>
+            </View>
+            <View style={styles.calFooterItem}>
+              <View style={styles.calFooterRightItem}>
+                <View style={styles.calFooterRightItemUpper}>
+                  <Text style={styles.calReminderTextInputHeader}>
+                    Reminder:
+                  </Text>
+                  <TextInput style={styles.calReminderTextInput} />
+                </View>
+                <View style={styles.calFooterRightItemLower}>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View style={styles.calFooterLowerSection}>
+            <Text style={styles.calDatePickerDoneButton}>
+                DONE
+            </Text>
+          </View>
         </View>
       </View>
       <Background />
@@ -83,21 +119,17 @@ const styles = StyleSheet.create({
     fontFamily: "Lato, sans-serif",
     justifyContent: "center",
     alignContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   calApptComponentContainer: {
     flex: 1,
     justifyContent: "center",
     width: "90%",
-    borderColor: "red",
-    borderWidth: 1,
   },
   calHeader: {
-    paddingTop: 50,
+    paddingTop: 10,
     flexDirection: "row",
     justifyContent: "space-between",
-    borderColor: "blue",
-    borderWidth: 1,
   },
   calWeekdayItemText: {
     flex: 1,
@@ -111,14 +143,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignContent: "center",
   },
-  calFooter: {
-    flex: 1,
-    borderWidth: 1,
-    borderColor: "yellow",
-  },
-  picker: {
-
-  },
+  picker: {},
   day: {
     margin: 5,
   },
@@ -162,5 +187,58 @@ const styles = StyleSheet.create({
     borderBottomColor: "#0083FF",
     borderBottomWidth: 2,
     width: "60%",
+  },
+  calFooter: {
+    flex: 1,
+  },
+  calFooterUpperSection: {
+    flexDirection: "row",
+  },
+  calFooterLowerSection: {
+    justifyContent: "flex-start",
+    flexDirection: "row-reverse",
+  },
+  calFooterItem: {
+    flex: 1,
+  },
+  calFooterLeftItem: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  calFooterRightItem: {
+    flexDirection: "column",
+  },
+  calFooterUserIcon: {
+    flex: 1,
+    padding: 10,
+  },
+  calFooterUserInfoContainer: {
+    flex: 2,
+    padding: 10,
+  },
+  calFooterUserName: {
+    fontSize: 20,
+  },
+  calDatePickerButton: {
+    color: "#0083FF",
+    fontWeight: "bold",
+  },
+  calReminderTextInput: {
+    borderColor: "lightgray",
+    borderWidth: 2,
+    borderRadius: 5,
+    height: 35,
+  },
+  calReminderTextInputHeader: {
+    color: "gray",
+    fontSize: 15,
+  },
+  calFooterRightItemUpper: {},
+  calFooterRightItemLower: {},
+  calDatePickerDoneButton: {
+    fontSize: 25,
+    color: "#0083FF",
+    fontWeight: "bold"
   },
 });
