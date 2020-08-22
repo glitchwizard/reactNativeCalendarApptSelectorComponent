@@ -75,7 +75,7 @@ export default function App() {
             <View style={styles.calFooterItem}>
               <View style={styles.calFooterLeftItem}>
                 <SimpleLineIcon
-                  name="user-female"
+                  name="user"
                   size={30}
                   color="#000"
                   style={StyleSheet.calFooterUserIcon}
